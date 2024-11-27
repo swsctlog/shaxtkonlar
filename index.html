@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТАБЛИЦА ШАХТ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table-container {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .header-title {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+        .header-desc {
+            font-size: 14px;
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        .highlight-green .highlight {
+            background-color: #90EE90;
+        }
+        .highlight-yellow .highlight {
+            background-color: #FFFF99;
+        }
+        .table-wrapper {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .spacing {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <!-- Таблицы с разными заголовками и описаниями -->
+        <div class="col-md-5 table-container highlight-green table-wrapper spacing">
+            <div class="header-title">MUBAREK LTDU</div>
+            <p class="header-desc">MUBAREK LTDU таблица полезноискапаемой шахты</p>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr><th colspan="13"></th></tr>
+                </thead>
+                <tbody id="data-body-1"></tbody>
+            </table>
+        </div>
+        
+        <div class="col-md-5 table-container highlight-yellow table-wrapper spacing">
+            <div class="header-title">ШУРТАН</div>
+            <p class="header-desc">ШУРТАН таблица полезноискапаемой шахты</p>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr><th colspan="13"></th></tr>
+                </thead>
+                <tbody id="data-body-2"></tbody>
+            </table>
+        </div>
+        
+        <div class="col-md-5 table-container highlight-green table-wrapper spacing">
+            <div class="header-title">УППГ</div>
+            <p class="header-desc">УППГ таблица полезноискапаемой шахты</p>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr><th colspan="13"></th></tr>
+                </thead>
+                <tbody id="data-body-3"></tbody>
+            </table>
+        </div>
+
+        <div class="col-md-5 table-container highlight-yellow table-wrapper spacing">
+            <div class="header-title">FOURTH</div>
+            <p class="header-desc">FOURTH таблица полезноискапаемой шахты</p>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr><th colspan="13"></th></tr>
+                </thead>
+                <tbody id="data-body-4"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getRandom(min, max, decimals = 0) {
+        const factor = Math.pow(10, decimals);
+        return (Math.random() * (max - min) + min).toFixed(decimals);
+    }
+
+    function populateTable(dataBodyId) {
+        const dataBody = document.getElementById(dataBodyId);
+
+        for (let row = 1; row <= 12; row++) {
+            const tr = document.createElement('tr');
+
+            for (let col = 0; col <= 12; col++) {
+                const td = document.createElement('td');
+
+                // Условие для каждого столбца
+                if (col === 0) {
+                    td.textContent = getRandom(90, 1200, 1);
+                    td.classList.add('highlight');
+                } else if (col === 1) {
+                    td.textContent = getRandom(90, 1200, 1);
+                    td.classList.add('highlight');
+                } else if (col === 2) {
+                    td.textContent = getRandom(-24, 1);
+                    td.classList.add('highlight');
+                } else if (col === 3 || col === 4) {
+                    td.textContent = getRandom(90, 1200, 1);
+                    td.classList.add('highlight');
+                } else if (col === 5) {
+                    td.textContent = getRandom(-4, 0);
+                    td.classList.add('highlight');
+                } else if (col === 6 || col === 7) {
+                    td.textContent = getRandom(90, 1200, 1);
+                    td.classList.add('highlight');
+                } else if (col === 8) {
+                    td.textContent = getRandom(-2, 0);
+                    td.classList.add('highlight');
+                } else if (col === 9 || col === 10) {
+                    td.textContent = getRandom(80, 1200, 1);
+                    td.classList.add('highlight');
+                } else if (col === 11) {
+                    td.textContent = getRandom(-5, 0);
+                    td.classList.add('highlight');
+                } else if (col === 12) {
+                    td.textContent = getRandom(80, 1200, 1);
+                    td.classList.add('highlight');
+                } else {
+                    td.textContent = getRandom(5, 15);
+                }
+
+                tr.appendChild(td);
+            }
+
+            dataBody.appendChild(tr);
+        }
+    }
+
+    // Заполнение каждой таблицы уникальными значениями
+    populateTable('data-body-1');
+    populateTable('data-body-2');
+    populateTable('data-body-3');
+    populateTable('data-body-4');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
